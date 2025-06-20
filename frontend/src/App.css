@@ -1,0 +1,76 @@
+/* Reset de base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* Container principal */
+.app-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Titre */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+/* Grille responsive des cartes */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Style de chaque carte */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  padding: 1.2rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre de la gare */
+.card-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Détails cachés ou visibles */
+.card-details {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.card-details p {
+  margin: 0.3rem 0;
+}
+
+/* Responsive text */
+@media (max-width: 500px) {
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-details {
+    font-size: 0.9rem;
+  }
+}
