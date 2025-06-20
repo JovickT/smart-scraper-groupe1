@@ -1,22 +1,26 @@
-# api/models.py
-from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 
-db = SQLAlchemy()
+Base = declarative_base()
 
-class Vigilance(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    departement = db.Column(db.String(50), nullable=False)
-    phenomene = db.Column(db.String(100), nullable=False)
-    niveau = db.Column(db.String(20), nullable=False)
-    debut = db.Column(db.String(100), nullable=False)
-    fin = db.Column(db.String(100), nullable=False)
+class Gare(Base):
+    __tablename__ = 'gares'
+    id = Column(Integer, primary_key=True)
+    nom_gare = Column(String(255), nullable=False)
+    code_uic_complet = Column(String(20))
+    code_postal = Column(String(10))
+    segmentation_drg = Column(String(10))
 
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "departement": self.departement,
-            "phenomene": self.phenomene,
-            "niveau": self.niveau,
-            "debut": self.debut,
-            "fin": self.fin
-        }
+    voyageurs = relationship("Voyageurs", back_populates="gare")
+
+
+class Voyageurs(Base):
+    __tablename__ = 'voyageurs'
+    id = Column(Integer, primary_key=True)
+    gare_id = Column(Integer, ForeignKey('gares.id'), nullable=False)
+    annee = Column(Integer, nullable=False)
+    total_voyageurs = Column(Integer)
+    total_non_voyageurs = Column(Integer)
+
+    gare = relationship("Gare", back_populates="voyageurs")
