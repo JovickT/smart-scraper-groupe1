@@ -51,7 +51,7 @@ docker compose up -d
 
 ### 1. Lancer le scraping via Postman (ou curl)
 
-Après avoir démarré les conteneurs avec `docker compose up -d`, **attends quelques secondes** que la base de données et le backend soient bien prêts.
+Après avoir démarré les conteneurs avec `docker compose up -d`, **attendre quelques secondes** que la base de données et le backend soient bien prêts.
 
 Ensuite, effectue une requête **POST** :
 
