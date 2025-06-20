@@ -108,7 +108,7 @@ smart-scraper-groupe1/
 
 ## 🧑‍💻 Auteurs
 
-Projet réalisé par le **Groupe 1** — Mastere EEDSI
+Projet réalisé par le **Groupe 1 : ** Jovick et Maïssaâ — Mastere 1 EEDSI
 
 Encadré dans le cadre du cours de scraping web.
 
