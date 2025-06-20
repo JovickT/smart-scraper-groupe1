@@ -27,11 +27,11 @@ def scrape_vigilance():
     alertes = []
 
     # ⚠️ La structure réelle de la page peut varier. Voici un exemple général :
-    table = soup.find('table')  # ou utilise soup.select ou soup.find_all selon le site
+    table = soup.find('table')  
     if not table:
         return jsonify({"error": "Tableau non trouvé"}), 500
 
-    rows = table.find_all('tr')[1:]  # sauter l'en-tête
+    rows = table.find_all('tr')[1:]  
     for row in rows:
         cols = row.find_all('td')
         if len(cols) >= 5:
