@@ -51,13 +51,24 @@ docker compose up -d
 
 ### 1. Lancer le scraping via Postman (ou curl)
 
-Effectue une requête **POST** :
+Après avoir démarré les conteneurs avec `docker compose up -d`, **attends quelques secondes** que la base de données et le backend soient bien prêts.
+
+Ensuite, effectue une requête **POST** :
 
 ```
 POST http://localhost:5000/api/scrape
 ```
 
-👉 Cela va lancer le scraping et insérer les données dans la base MySQL.
+📌 **Important** :
+Il se peut que la base de données prenne un petit moment à être prête. Si la requête échoue au début, réessaie jusqu'à ce que tu obtiennes dans la réponse :
+
+```json
+{
+  "message": "Scraping terminé avec succès."
+}
+```
+
+👉 Cela signifie que les données ont bien été insérées dans la base MySQL.
 
 ---
 
